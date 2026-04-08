@@ -1,0 +1,15 @@
+export const categoryLabels: Record<string, string> = {
+  breakfast: "Breakfast",
+  continental_mains: "Continental Mains",
+  oriental_starters: "Oriental Starters",
+  continental_starters: "Continental Starters",
+  soups: "Soups",
+  noodles_rice: "Noodles, Rice & Sides",
+  sandwiches: "Sandwich",
+  salads: "Salad",
+  north_indian: "North Indian",
+  burgers: "Burger & Hot Dog",
+  beverages: "Beverages",
+  juices: "Fresh Juices",
+  pasta_pizza: "Pasta & Pizza",
+};

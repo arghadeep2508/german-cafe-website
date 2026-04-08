@@ -1,0 +1,221 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------- ROOT DESIGN SYSTEM ---------- */
+
+:root {
+  --bg: #f7f4ef;
+  --card: #ffffff;
+
+  --text-primary: #1a1a1a;
+  --text-secondary: #6b6b6b;
+
+  --border: #e9e3db;
+
+  --accent: #b6893a;
+  --accent-hover: #9c7430;
+
+  --soft: #f2ede6;
+}
+
+/* ---------- BASE LAYER ---------- */
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    @apply box-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--text-primary);
+    font-family: var(--font-body), ui-sans-serif, system-ui,
+      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-heading), ui-serif, Georgia, serif;
+    @apply font-semibold tracking-tight;
+  }
+
+  a {
+    @apply transition-all duration-300;
+  }
+
+  button {
+    @apply transition-all duration-300;
+  }
+}
+
+/* ---------- TYPOGRAPHY SYSTEM ---------- */
+
+@layer components {
+  .heading-xl {
+    font-size: 52px;
+    line-height: 1.1;
+    font-weight: 600;
+  }
+
+  .heading-lg {
+    font-size: 36px;
+    line-height: 1.2;
+    font-weight: 600;
+  }
+
+  .heading-md {
+    font-size: 26px;
+    font-weight: 600;
+  }
+
+  .text-muted {
+    color: var(--text-secondary);
+    font-size: 15px;
+  }
+}
+
+/* ---------- LAYOUT SYSTEM ---------- */
+
+@layer components {
+  .section {
+    padding: 100px 0;
+  }
+
+  .section-alt {
+    background: var(--soft);
+  }
+
+  .container-custom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+/* ---------- BUTTON SYSTEM ---------- */
+
+@layer components {
+  .btn-primary {
+    background-color: var(--accent);
+    color: white;
+    padding: 10px 22px;
+    border-radius: 9999px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 14px rgba(182, 137, 58, 0.25);
+  }
+
+  .btn-primary:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-1px);
+  }
+
+  .btn-premium {
+    background: linear-gradient(135deg, #b6893a, #9c7430);
+    color: white;
+    padding: 12px 28px;
+    border-radius: 9999px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(182, 137, 58, 0.25);
+  }
+
+  .btn-premium:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 12px 30px rgba(182, 137, 58, 0.35);
+  }
+
+  .btn-secondary {
+    border: 1px solid var(--border);
+    padding: 10px 22px;
+    border-radius: 9999px;
+    background: white;
+    transition: all 0.3s ease;
+  }
+
+  .btn-secondary:hover {
+    background: #f3f3f3;
+    transform: translateY(-1px);
+  }
+}
+
+/* ---------- CARD SYSTEM ---------- */
+
+@layer components {
+  .card {
+    background: var(--card);
+    border-radius: 18px;
+    padding: 18px;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.05);
+    transition: all 0.35s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.08);
+  }
+}
+
+/* ---------- UTILITIES ---------- */
+
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(8px);
+  }
+
+  .text-gradient {
+    background: linear-gradient(to right, #b6893a, #9c7430);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+/* ---------- ANIMATIONS ---------- */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.7s ease-out forwards;
+}
+
+/* ---------- EXTRA POLISH ---------- */
+
+::selection {
+  background: var(--accent);
+  color: white;
+}
+
+.section-divider {
+  border-top: 1px solid var(--border);
+}
