@@ -1,7 +1,14 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import { menuHighlights } from "../../lib/menuHighlights";
+
+// ✅ Type guard (SAFE FIX)
+type HighlightItem = {
+  name: string;
+  image: string;
+  price?: number;
+};
 
 export default function Highlights() {
   const scrollRef = useRef<HTMLDivElement | null>(null);
@@ -64,7 +71,7 @@ export default function Highlights() {
           onMouseUp={stopDragging}
           onMouseLeave={stopDragging}
         >
-          {menuHighlights.map((item, index) => (
+          {(menuHighlights as HighlightItem[]).map((item, index) => (
             <div
               key={index}
               className="min-w-[260px] sm:min-w-[300px] lg:min-w-[340px] flex-shrink-0 group"
@@ -94,7 +101,8 @@ export default function Highlights() {
                       {item.name}
                     </h3>
 
-                    {item.price && (
+                    {/* ✅ SAFE RENDER */}
+                    {item.price !== undefined && (
                       <p className="text-sm text-[var(--accent)] mt-1">
                         ₹{item.price}
                       </p>
