@@ -7,7 +7,7 @@ export default function MenuPage() {
         Our Menu
       </h1>
 
-      <MenuGrid />
+      <MenuGrid items={[]} />
     </div>
   );
 }
